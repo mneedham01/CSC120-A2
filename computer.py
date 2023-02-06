@@ -26,4 +26,12 @@ class Computer:
 
     def update_price(self, new_price) -> None:
         self.price=new_price
-        
+    
+    def print_details(self)-> None:
+        print(self.description)
+        print("Processor Type:",self.processor_type)
+        print("Hard Drive Capacity:",self.hard_drive_capacity)
+        print("Memory:",self.memory,"GB")
+        print("Operating System:",self.operating_system)
+        print("Year Made",self.year_made)
+        print("Price:", self.price)
