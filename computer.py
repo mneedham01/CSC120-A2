@@ -21,9 +21,9 @@ class Computer:
         self.price= price 
 
     # What methods will you need?
-    def update_OS(self, operating_system) -> None:
-        self.operating_system= "MacOS Monterey"
+    def update_OS(self, new_operating_system) -> None:
+        self.operating_system= new_operating_system
 
-    def update_price(self, price) -> None:
-        self.price=550
+    def update_price(self, new_price) -> None:
+        self.price=new_price
         
