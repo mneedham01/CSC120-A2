@@ -15,7 +15,7 @@ class ResaleShop:
         new_computer=Computer(description, processor_type, hard_drive_capacity, memory, operating_system, year_made, price)
         self.inventory.append(new_computer)
     
-    def sell(self, c:Computer)- >None:
+    def sell(self, c:Computer) -> None:
         if c in self.inventory:
             inventory.remove(c)
         else:
@@ -26,3 +26,5 @@ def main():
     myStore.buy("a","a",1,2, "a",3,5)
     print(myStore.inventory)
     myStore.sell(myStore.inventory[0])
+
+if __name__ == "__main__": main()
