@@ -24,5 +24,6 @@ class Computer:
     def update_OS(self, operating_system) -> None:
         self.operating_system= "MacOS Monterey"
 
-    #def update_price(self, price) -> None:
+    def update_price(self, price) -> None:
+        self.price=550
         
