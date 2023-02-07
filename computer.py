@@ -1,3 +1,5 @@
+#Establishes the class "Computer" which holds all the necessary information about the computer, 
+#can update the price and operating system, and can print out the details about the computer. 
 class Computer:
 
     # What attributes will it need?
@@ -21,12 +23,15 @@ class Computer:
         self.price= price 
 
     # What methods will you need?
+    #This method updates the operating system-- it requires input for what the new operating system will be
     def update_OS(self, new_operating_system) -> None:
         self.operating_system= new_operating_system
 
+    #This method updates the price and also requires input for what the new price will be 
     def update_price(self, new_price) -> None:
         self.price=new_price
     
+    #This method prints out all the information about the computer 
     def print_details(self)-> None:
         print(self.description)
         print("Processor Type:",self.processor_type)

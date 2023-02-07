@@ -1,5 +1,8 @@
 from computer import * 
 
+#This establishes the class "ResaleShop" which sets up an inventory (starting with an empty list)
+#It can buy new computers and add them to its inventory, sell computers, print its inventory,
+#And refurbish the computers by updating its OS and price. 
 class ResaleShop:
 
     # What attributes will it need?
@@ -11,16 +14,21 @@ class ResaleShop:
         self.inventory=[]
 
     # What methods will you need?
+    #The buy method takes in all the necessary information on the computer, creates a computer using the Computer class, 
+    #and adds it to the inventory. 
     def buy(self,description, processor_type, hard_drive_capacity, memory, operating_system, year_made, price)-> None:
         new_computer=Computer(description, processor_type, hard_drive_capacity, memory, operating_system, year_made, price)
         self.inventory.append(new_computer)
     
+    #The sell method checks whether a computer is in its inventory, and if it is, removes it. 
     def sell(self, c:Computer) -> None:
         if c in self.inventory:
             self.inventory.remove(c)
         else:
             print("Computer not found.")
     
+    #The print inventory method first checks to see if the inventory contains anything, and then loops through it 
+    #and asks each computer to print its details. 
     def print_inventory(self)-> None:
         if self.inventory:
             print("Inventory: \n")
@@ -30,6 +38,8 @@ class ResaleShop:
         else:
             print("Empty inventory.")
 
+    #The refurbish method first checks if the computer is in the inventory, then updates the price based on the year 
+    #it was made, and then if it doesn't have the latest operating system, updates it. 
     def refurbish(self,c:Computer) -> None:
         
         if c in self.inventory:
@@ -59,7 +69,7 @@ def main():
     myStore= ResaleShop()
     myStore.buy("Computer 1","xxx",1,2, "xxxx",3,5)
     myStore.buy("Computer 2","xxx",1,2, "xxxx",3,5)
-    myStore.buy("Computer 3","xxx",1,2, "xxxx",3,5)
+    myStore.buy("Computer 3","xxx",1,2, "xxxx",2020,5)
     myStore.print_inventory()
     print()
     myStore.sell(myStore.inventory[0])
@@ -68,7 +78,7 @@ def main():
     myStore.sell(myStore.inventory[0])
     myStore.print_inventory()
     print()
-    myStore.sell(myStore.inventory[0])
+    myStore.refurbish(myStore.inventory[0])
     myStore.print_inventory()
 
 if __name__ == "__main__": main()
