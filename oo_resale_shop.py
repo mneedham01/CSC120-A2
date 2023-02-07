@@ -44,25 +44,25 @@ class ResaleShop:
         
         if c in self.inventory:
             
-            if int(c["year_made"]) < 2000:
+            if c.year_made < 2000:
                 c.update_price(0) # too old to sell, donation only
-            elif int(c["year_made"]) < 2012:
+            elif c.year_made < 2012:
                 c.update_price(250)  # heavily-discounted price on machines 10+ years old
-            elif int(c["year_made"]) < 2018:
+            elif c.year_made < 2018:
                 c.update_price(550) # discounted price on machines 4-to-10 year old machines
             else:
                 c.update_price(1000)# recent stuff
             
+            #sets up the most recent OS system as Mac OS Monterey
             new_OS = "MacOS Monterey"
 
-            if c['operating_system'] is not new_OS:
-                print("Refurbishing Computer:", c, ", updating OS to", new_OS)
+            if c.operating_system is not new_OS:
+                print("Updating OS to", new_OS)
                 print("Updating inventory...")
                 c.update_OS(new_OS) # update details after installing new OS
                 print("Done.\n") 
         else:
             print("Item", c, "not found. Please select another item to refurbish.")
-
 
 
 def main():
