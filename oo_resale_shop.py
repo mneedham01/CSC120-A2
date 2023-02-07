@@ -31,31 +31,27 @@ class ResaleShop:
             print("Empty inventory.")
 
     def refurbish(self,c:Computer) -> None:
+        
         if c in self.inventory:
-            if c.
-
-
-    def refurbish(item_id: int, new_os: Optional[str] = None):
-        if item_id in self.inventory:
-            computer =  self.inventory[item_id] # locate the computer
-            if int(computer["year_made"]) < 2000:
-                computer["price"] = 0 # too old to sell, donation only
-            elif int(computer["year_made"]) < 2012:
-                computer["price"] = 250 # heavily-discounted price on machines 10+ years old
-            elif int(computer["year_made"]) < 2018:
-                computer["price"] = 550 # discounted price on machines 4-to-10 year old machines
+            
+            if int(c["year_made"]) < 2000:
+                c.update_price(0) # too old to sell, donation only
+            elif int(c["year_made"]) < 2012:
+                c.update_price(250)  # heavily-discounted price on machines 10+ years old
+            elif int(c["year_made"]) < 2018:
+                c.update_price(550) # discounted price on machines 4-to-10 year old machines
             else:
-                computer["price"] = 1000 # recent stuff
+                c.update_price(1000)# recent stuff
+            
+            new_OS = "MacOS Monterey"
 
-            if new_os is not None:
-                computer["operating_system"] = new_os # update details after installing new OS
+            if c['operating_system'] is not new_OS:
+                print("Refurbishing Computer:", c, ", updating OS to", new_OS)
+                print("Updating inventory...")
+                c.update_OS(new_OS) # update details after installing new OS
+                print("Done.\n") 
         else:
-            print("Item", item_id, "not found. Please select another item to refurbish.")
-    new_OS = "MacOS Monterey"
-    print("Refurbishing Item ID:", computer_id, ", updating OS to", new_OS)
-    print("Updating inventory...")
-    refurbish(computer_id, new_OS)
-    print("Done.\n")
+            print("Item", c, "not found. Please select another item to refurbish.")
 
 
 
