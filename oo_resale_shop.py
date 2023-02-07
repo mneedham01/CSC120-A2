@@ -21,14 +21,17 @@ class ResaleShop:
         else:
             print("Computer not found.")
     
-     def print_inventory(self)-> None:
+    def print_inventory(self)-> None:
         for c in self.inventory():
             print c.print_details()
 
 def main():
     myStore= ResaleShop()
-    myStore.buy("a","a",1,2, "a",3,5)
-    print(myStore.inventory)
+    myStore.buy("Computer 1","xxx",1,2, "xxxx",3,5)
+    myStore.buy("Computer 2","xxx",1,2, "xxxx",3,5)
+    myStore.buy("Computer 3","xxx",1,2, "xxxx",3,5)
+    myStore.print_inventory()
     myStore.sell(myStore.inventory[0])
+    myStore.print_inventory()
 
 if __name__ == "__main__": main()
