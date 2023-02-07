@@ -17,15 +17,22 @@ class ResaleShop:
     #The buy method takes in all the necessary information on the computer, creates a computer using the Computer class, 
     #and adds it to the inventory. 
     def buy(self,description, processor_type, hard_drive_capacity, memory, operating_system, year_made, price)-> None:
+        print("Buying",description)
+        print("Adding to inventory.")
         new_computer=Computer(description, processor_type, hard_drive_capacity, memory, operating_system, year_made, price)
         self.inventory.append(new_computer)
+        print("Done.")
+        print()
     
     #The sell method checks whether a computer is in its inventory, and if it is, removes it. 
     def sell(self, c:Computer) -> None:
+        print("Checking inventory.")
         if c in self.inventory:
             self.inventory.remove(c)
+            print("Computer sold.")
         else:
             print("Computer not found.")
+        print()
     
     #The print inventory method first checks to see if the inventory contains anything, and then loops through it 
     #and asks each computer to print its details. 
@@ -37,6 +44,7 @@ class ResaleShop:
                 print()
         else:
             print("Empty inventory.")
+        print()
 
     #The refurbish method first checks if the computer is in the inventory, then updates the price based on the year 
     #it was made, and then if it doesn't have the latest operating system, updates it. 
@@ -63,6 +71,7 @@ class ResaleShop:
                 print("Done.\n") 
         else:
             print("Item", c, "not found. Please select another item to refurbish.")
+        print()
 
 
 def main():
