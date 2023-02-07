@@ -39,4 +39,4 @@ class Computer:
         print("Memory:",self.memory,"GB")
         print("Operating System:",self.operating_system)
         print("Year Made",self.year_made)
-        print("Price:", self.price)
+        print("Price: $", self.price)
