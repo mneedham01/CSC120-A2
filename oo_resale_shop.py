@@ -17,9 +17,13 @@ class ResaleShop:
     
     def sell(self, c:Computer) -> None:
         if c in self.inventory:
-            inventory.remove(c)
+            self.inventory.remove(c)
         else:
             print("Computer not found.")
+    
+     def print_inventory(self)-> None:
+        for c in self.inventory():
+            print c.print_details()
 
 def main():
     myStore= ResaleShop()
